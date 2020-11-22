@@ -1,0 +1,14 @@
+C:\Users\USER\source\repos\Pizzaria\bin\Debug\Pizzaria.exe.config
+C:\Users\USER\source\repos\Pizzaria\bin\Debug\Pizzaria.exe
+C:\Users\USER\source\repos\Pizzaria\bin\Debug\Pizzaria.pdb
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.csprojAssemblyReference.cache
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.FrmLogin.resources
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.Properties.Resources.resources
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.exe
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.pdb
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.FrmOpcao.resources
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.FrmCadastro.resources
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.FrmVendas.resources
+C:\Users\USER\source\repos\Pizzaria\obj\Debug\Pizzaria.FrmCliente.resources
