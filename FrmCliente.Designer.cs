@@ -144,6 +144,7 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(269, 29);
             this.txtCEP.TabIndex = 9;
+            this.txtCEP.Leave += new System.EventHandler(this.txtCEP_Leave);
             // 
             // label3
             // 

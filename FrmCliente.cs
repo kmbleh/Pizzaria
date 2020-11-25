@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Correios;
 
 namespace Pizzaria
 {
@@ -248,6 +249,38 @@ namespace Pizzaria
             txtBairro.Text = dgvClientes[6, linhaAtual].Value.ToString();
             txtCidade.Text = dgvClientes[7, linhaAtual].Value.ToString();
             txtUF.Text = dgvClientes[8, linhaAtual].Value.ToString();
+        }
+
+        private void LocalizarCEP()
+        {
+            if(!string.IsNullOrWhiteSpace(txtCEP.Text))
+            {
+                CorreiosApi correiosApi = new CorreiosApi();
+                var endereco = correiosApi.consultaCEP(txtCEP.Text);
+
+                if(endereco.cep != null)
+                {
+                    txtRua.Text = endereco.end;
+                    txtBairro.Text = endereco.bairro;
+                    txtCidade.Text = endereco.cidade;
+                    txtUF.Text = endereco.uf;
+                }
+                else
+                {
+                    MessageBox.Show("CEP não localizado.", "Erro de localização",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Informe um CEP válido.", "Entrada inválida",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtCEP_Leave(object sender, EventArgs e)
+        {
+            LocalizarCEP();
         }
     }
 }

@@ -338,6 +338,7 @@
             this.lblCodPI.Name = "lblCodPI";
             this.lblCodPI.Size = new System.Drawing.Size(0, 20);
             this.lblCodPI.TabIndex = 28;
+            this.lblCodPI.Visible = false;
             // 
             // picVendas
             // 

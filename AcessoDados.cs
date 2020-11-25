@@ -207,7 +207,7 @@ namespace Pizzaria
                 SqlDataReader dataReader = cmdo.ExecuteReader();
                 dt.Load(dataReader);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
             finally
@@ -313,7 +313,7 @@ namespace Pizzaria
                     result = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -357,7 +357,7 @@ namespace Pizzaria
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -389,7 +389,7 @@ namespace Pizzaria
                     result = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -430,7 +430,7 @@ namespace Pizzaria
                     });
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -821,7 +821,7 @@ namespace Pizzaria
         }
 
         //Lista tamanhos combobox vendas
-        public List<Vendas> CmbTamanho(int codTipo)
+        public List<Vendas> CmbTamanho(string nome)
         {
             List<Vendas> tamanhos = new List<Vendas>();
             conn.ConnectionString = Properties.Settings.Default.conexao;
@@ -832,8 +832,8 @@ namespace Pizzaria
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;
                 cmdo.CommandText = "SELECT * FROM Tamanho WHERE Id IN (SELECT IdTamanho FROM Produto" +
-                    " WHERE IdTipo = @IdTipo)";
-                cmdo.Parameters.Add("@IdTipo", SqlDbType.Int, 18).Value = codTipo;
+                    " WHERE Nome = @nome)";
+                cmdo.Parameters.Add("@nome", SqlDbType.VarChar, 50).Value = nome;
                 SqlDataReader dataReader = cmdo.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -922,7 +922,7 @@ namespace Pizzaria
                     }); ; ;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -1035,7 +1035,7 @@ namespace Pizzaria
 
         public decimal ValorTotal(int codVendas)
         {
-            decimal total = 0; 
+            decimal total = 0m;
             conn.ConnectionString = Properties.Settings.Default.conexao;
             SqlCommand cmdo = new SqlCommand();
             try
@@ -1043,12 +1043,15 @@ namespace Pizzaria
                 conn.Open();
                 cmdo.Connection = conn;
                 cmdo.CommandType = CommandType.Text;
-                cmdo.CommandText = "SELECT SUM(Preco) AS [Preco] FROM PedidoItem WHERE IdVendas = @codVendas";
+                cmdo.CommandText = "SELECT Preco FROM PedidoItem WHERE IdVendas = @codVendas";
                 cmdo.Parameters.Add("@codVendas", SqlDbType.Int, 18).Value = codVendas;
                 SqlDataReader dataReader = cmdo.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    total = Convert.ToDecimal(dataReader["Preco"].ToString());
+                    if (dataReader.HasRows)
+                    {
+                        total += Convert.ToDecimal(dataReader["Preco"].ToString());
+                    }
                 }
             }
             catch (Exception)
@@ -1087,7 +1090,7 @@ namespace Pizzaria
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

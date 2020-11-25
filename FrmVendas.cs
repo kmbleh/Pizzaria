@@ -119,10 +119,19 @@ namespace Pizzaria
                     cmbNome.ValueMember = item.CodProd.ToString();
                     cmbTamanho.ValueMember = item.CodTam.ToString();
 
-                    int qtde = Convert.ToInt32(txtQtde.Text);
-                    decimal preco = item.Preco;
-                    decimal subtotal = qtde * preco;
-                    txtSub.Text = subtotal.ToString();
+                    try
+                    {
+                        int qtde = Convert.ToInt32(txtQtde.Text);
+                        decimal preco = item.Preco;
+                        decimal subtotal = qtde * preco;
+                        txtSub.Text = subtotal.ToString();
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Quantidade inválida.", "Erro de quantidade",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    
                 }
             }
         }
@@ -130,7 +139,6 @@ namespace Pizzaria
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             AcessoDados acessoDados = new AcessoDados();
-            bool result = false;
 
             int codVendas = Convert.ToInt32(txtCodVenda.Text);
 
@@ -168,7 +176,7 @@ namespace Pizzaria
         {
             AcessoDados acessoDados = new AcessoDados();
             Vendas vendas = new Vendas();
-            string nome = cmbNome.ValueMember;
+            string nome = cmbNome.Text;
             vendas = acessoDados.ChecarVeg(nome);
 
             if (vendas.Vegetariano == true)
@@ -178,6 +186,14 @@ namespace Pizzaria
             else
             {
                 chkVeg.Checked = false;
+            }
+
+            List<Vendas> tamanhos = acessoDados.CmbTamanho(nome);
+
+            foreach (var item in tamanhos)
+            {
+                cmbTamanho.ValueMember = item.CodTam.ToString();
+                cmbTamanho.Items.Add(item.Tamanho);
             }
         }
 
@@ -202,14 +218,6 @@ namespace Pizzaria
             foreach (var item in produto)
             {
                 cmbNome.Items.Add(item.Produto);
-            }
-
-            List<Vendas> tamanhos = acessoDados.CmbTamanho(codigo);
-
-            foreach (var item in tamanhos)
-            {
-                cmbTamanho.ValueMember = item.CodTam.ToString();
-                cmbTamanho.Items.Add(item.Tamanho);
             }
         }
 
