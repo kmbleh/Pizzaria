@@ -80,42 +80,35 @@ GO
 
 INSERT INTO Usuario
 SELECT 'Adriana Lima', 'Adriana123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Adriana.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Documents\Pizzaria\Resources\Adriana.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
-SELECT 'Alessandra Ambrósio', 'Ale123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Alessandra.jpg', Single_Blob) AS Foto
+SELECT 'Alessandra AmbrÃ³sio', 'Ale123', BulkColumn
+FROM Openrowset(Bulk 'C:\Users\Documents\Pizzaria\Resources\Alessandra.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
 SELECT 'Audrey Hepburn', 'Audrey123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Audrey.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Documents\Pizzaria\Resources\Audrey.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
 SELECT 'Keanu Reeves', 'Keanu123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Keanu.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Documents\Pizzaria\Resources\Keanu.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
 SELECT 'Nicolas Cage', 'Nicolas123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Nicolas.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Documents\Pizzaria\Resources\Nicolas.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
 SELECT 'Rodrigo Santoro', 'Rod123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Rodrigo.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Documents\Pizzaria\Resources\Rodrigo.jpg', Single_Blob) AS Foto
 
 INSERT INTO TipoProduto VALUES ('Pizza Doce'), ('Pizza Salgada'), ('Bebida')
 
 INSERT INTO Tamanho VALUES ('Broto'), 
 ('Pequena'), 
-('Média'), 
+('MÃ©dia'), 
 ('Grande'), 
 ('Lata'), 
 ('Garrafa 600 ml'), 
 ('2L'), 
 ('Garrafa 500ml')
-
-SELECT * FROM PedidoItem
-
-DELETE FROM PedidoItem WHERE IdVendas = 10
-
-SELECT SUM(Preco) FROM PedidoItem WHERE IdVendas = 18
-SELECT * FROM PedidoItem WHERE IdVendas = 18
