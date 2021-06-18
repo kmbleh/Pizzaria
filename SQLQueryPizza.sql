@@ -80,27 +80,27 @@ GO
 
 INSERT INTO Usuario
 SELECT 'Adriana Lima', 'Adriana123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\thiag\source\repos\kmbleh\Pizzaria\Resources\Adriana.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Adriana.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
 SELECT 'Alessandra Ambrósio', 'Ale123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\thiag\source\repos\kmbleh\Pizzaria\Resources\Alessandra.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Alessandra.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
 SELECT 'Audrey Hepburn', 'Audrey123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\thiag\source\repos\kmbleh\Pizzaria\Resources\Audrey.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Audrey.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
 SELECT 'Keanu Reeves', 'Keanu123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\thiag\source\repos\kmbleh\Pizzaria\Resources\Keanu.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Keanu.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
 SELECT 'Nicolas Cage', 'Nicolas123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\thiag\source\repos\kmbleh\Pizzaria\Resources\Nicolas.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Nicolas.jpg', Single_Blob) AS Foto
 
 INSERT INTO Usuario
 SELECT 'Rodrigo Santoro', 'Rod123', BulkColumn
-FROM Openrowset(Bulk 'C:\Users\thiag\source\repos\kmbleh\Pizzaria\Resources\Rodrigo.jpg', Single_Blob) AS Foto
+FROM Openrowset(Bulk 'C:\Users\Camila\Documents\Pizzaria\Resources\Rodrigo.jpg', Single_Blob) AS Foto
 
 INSERT INTO TipoProduto VALUES ('Pizza Doce'), ('Pizza Salgada'), ('Bebida')
 
